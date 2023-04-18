@@ -1,0 +1,18 @@
+<app-admin-navbar></app-admin-navbar>
+<h1 style="text-align: center; color: brown;">Welcome Admin</h1>
+
+<table class="table" border="1">
+
+<tr><th>Id</th><th>Image</th><th>Food</th><th>Cuisine</th><th>Price</th><th>Action</th></tr>
+<tr *ngFor="let f of foods">
+<td>{{f.id}}</td>
+<td><img src="{{f.imagePath}}" style="height: 120; width: 200;"></td>
+<td>{{f.food_name}}</td>
+<td>{{f.cuisine}}</td>
+<td>{{f.food_price}}</td>
+<td><a routerLink="/editFood/{{f.id}}">
+    <button class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true">Edit</i></button></a>&nbsp;
+<button class="btn btn-danger" (click)="deleteFood(f.id)"><i class="fa fa-trash" aria-hidden="true">Delete</i></button></td>
+</tr>
+</table>
+<h3  style="color:red ;">{{message}}</h3>

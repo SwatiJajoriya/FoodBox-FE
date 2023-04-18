@@ -1,0 +1,25 @@
+<div class = "container-fluid">
+    <app-admin-navbar></app-admin-navbar>
+</div>
+
+<div class = "container-fluid col-md-6 offset-md-3">
+    <h4 style="background-color:coral; text-align: center; text-size-adjust: 500; margin-top: 10px  ;">Add Dish details</h4>
+    <form>
+        <table class="table table-hover" style="text-align: center;">
+        <tr style="text-shadow: 0cqh; text-size-adjust:50px;">
+            <td><i class="fa fa-cutlery" aria-hidden="true">  Dish Name:</i></td><td><input type="text" name="food_name" [(ngModel)]="food.food_name"></td></tr>
+        <tr><td><i class="fa fa-lemon" aria-hidden="true">  Cuisine:</i></td><td>
+            <select [(ngModel)]="food.cuisine"  name="cuisine">
+               <option *ngFor="let c of cuisine" value="{{c.cuisine}}">{{c.cuisine}}</option>
+            </select>
+        </td></tr>
+        <tr><td><i class="fa fa-inr" aria-hidden="true">  Price:</i></td><td><input type="text" name="food_price" [(ngModel)]="food.food_price"></td></tr>
+        <tr><td><i class="fa fa-camera" aria-hidden="true">  Image-Path:</i></td><td><input type="text" name="imagePath" [(ngModel)]="food.imagePath"></td></tr>
+        
+       <tr><td>
+     <button type="submit" (click)="addFood()" class="btn btn-primary btn-lg">AddNow</button>
+       </td></tr>
+    </table>
+        </form>
+    
+</div>

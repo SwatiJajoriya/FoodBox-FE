@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <h2 class="text-primary">Update Food Details : {{f.id}}</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Dish-name:</label>
+                <input type="text" formControlName="food_name" class="form-control" 
+                [(ngModel)]="f.food_name" 
+                [ngClass]="{'is-invalid':submitted && form['food_name'].errors}">
+                <div *ngIf="submitted && form['food_name'].errors" class="invalid-feedback">
+                    Name Can't be empty
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Cuisine:</label>
+                 <select formControlName="cuisine" class="form-control" 
+                [(ngModel)]="f.cuisine" 
+                [ngClass]="{'is-invalid':submitted && form['cuisine'].errors}">
+                    <option *ngFor="let c of cuisine" value="{{c.cuisine}}">{{c.cuisine}}</option>
+                 </select>
+                <div *ngIf="submitted && form['cuisine'].errors" class="invalid-feedback">
+                    Cuisine Can't be empty
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input type="text" formControlName="food_price" class="form-control" 
+                [(ngModel)]="f.food_price" 
+                [ngClass]="{'is-invalid':submitted && form['food_price'].errors}">
+                <div *ngIf="submitted && form['food_price'].errors" class="invalid-feedback">
+                    Price Can't be empty
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Image-Path:</label>
+                <input type="text" formControlName="imagePath" class="form-control" 
+                [(ngModel)]="f.imagePath" 
+                [ngClass]="{'is-invalid':submitted && form['imagePath'].errors}">
+                <div *ngIf="submitted && form['imagePath'].errors" class="invalid-feedback">
+                    Image-Path Can't be empty
+                </div>
+                </div>
+                <br>
+            <button class="btn btn-primary">Update Details</button>
+</form>
+    </div>
+  </div>

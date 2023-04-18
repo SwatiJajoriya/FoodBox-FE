@@ -1,0 +1,40 @@
+<app-user-navbar></app-user-navbar>
+<h1 style="text-align: center; color: brown;">Welcome to FoodBox!!</h1>
+<div style="text-align: center;">
+<button (click) = goToCart() class = "btn btn-info"><i class="fa fa-cart-plus" aria-hidden="true">   Go To Cart</i></button>
+<br><br>
+  <input type="text" name="search" [(ngModel)]="search">
+<button (click) = "searchFood()" class = "btn btn-info">Search By Name</button>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<select [(ngModel)]="cuisineKeyword"  name="cuisineKeyword">
+   <option  *ngFor="let c of cuisine" value="{{c.cuisine}}">{{c.cuisine}}</option>
+</select>
+   <button (click) = "searchByCuisine()" class = "btn btn-info">Filter By Cuisine</button>
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   <select [(ngModel)]="sortPrice"  name="sortPrice">
+      <option value="ASC">Low To High</option>
+      <option value="DESC">High To Low</option>
+   </select>
+      <button (click) = "searchByPrice()" class = "btn btn-info">Sort By Price</button>
+     
+         &nbsp;&nbsp;&nbsp;&nbsp;
+<button (click) = "getAllFood()" class = "btn btn-info">Back to Full List</button>
+</div>
+   <br><br>
+
+
+
+<table class="table" border="1">
+
+<tr><th>Id</th><th>Image</th><th>Food</th><th>Cuisine</th><th>Price</th><th>Action</th></tr>
+<tr *ngFor="let f of foods">
+<td>{{f.id}}</td>
+<td><img src="{{f.imagePath}}" style="height: 150; width: 300;"></td>
+<td>{{f.food_name}}</td>
+<td>{{f.cuisine}}</td>
+<td>{{f.food_price}}</td>
+<td> <button (click) = "addFoodToCart(f.id)" class = "btn btn-success"><i class="fa fa-cart-plus" aria-hidden="true">  Add To Cart</i></button></td></tr>
+</table>
+
+
+<h3  style="color:red ;">{{message}}</h3>
